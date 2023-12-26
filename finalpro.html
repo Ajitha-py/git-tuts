@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class= "container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+        <form>
+            <h4>Task Details</h4>
+            <!-- Input from User -->
+            <label>Title</label>
+            <input type = "text"  id = "Title"><br><br>
+            <label>Description</label>
+            <input type = "text"  id = "description"><br><br>
+            <label>Date</label>
+            <input type ="datetime-local" id ="date"><br><br>
+            <input id ='btn' type ="submit" onclick = "register(event)"><br><br>
+        </form>
+        
+    </center>
+    <div id = "output">  
+    <button onclick = "fetchData()"> sunday </button>
+    <button onclick = "fetchData()"> monday </button>
+    <button onclick = "fetchData()"> wednsday</button>
+    <button onclick = "fetchData()"> Thurday </button>
+    <button onclick = "fetchData()"> friday </button>
+    <button onclick = "fetchData()"> saterday</button><br>
+</div>
+    <script>
+       let output = document.getElementById('output');
+       function fetchData() {
+          fetch('https://dummyjson.com/products/1')
+          .then(response => response.json())
+          .then(data => {
+             output.innerHTML += "Title = " + data.Title + "<br/>";
+             output.innerHTML += "Description = " + data.description+ "<br/>";
+             output.innerHTML += "Date= " + data.datetime + "<br/>";
+             
+          })
+       }
+    </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
